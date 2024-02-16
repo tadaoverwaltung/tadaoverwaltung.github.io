@@ -108,6 +108,18 @@
             white-space: nowrap; /* Prevents wrapping */
             align-self: center; /* Center vertically in the card */
         }
+        .job-card a {
+            text-decoration: none; /* Removes underline from links */
+            color: inherit; /* Inherits text color from parent */
+            display: block; /* Makes the link fill the entire card area */
+        }
+
+        .job-card:hover {
+            background-color: #fafafa; /* Slightly lighter background on hover */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* More pronounced shadow for a "lifted" effect */
+            transition: box-shadow 0.3s ease, background-color 0.3s ease; /* Smooth transition for hover effects */
+        }
+
     </style>
 </head>
 <body>
@@ -125,6 +137,7 @@
 
     <main>
         <section class="job-listing">
+            <a href="#" target="_blank" class="job-card-link">
                 <div class="job-card">
                     <img src="company-logo.png" alt="Company Logo" class="company-logo">
                     <div class="job-info">
@@ -138,32 +151,36 @@
                     </div>
                     <div class="posting-date">Today</div> <!-- New posting date element -->
                 </div>
-            <div class="job-card">
-                <img src="company-logo.png" alt="Company Logo" class="company-logo">
-                <div class="job-info">
-                    <h2>Architekt*in</h2>
-                    <p>Herzog & de Meuron</p>
-                    <div class="tags">
-                        <span>80-100%</span>
-                        <span>Wettbewerbe</span>
+            </a>
+            <a href="#" target="_blank" class="job-card-link">
+                <div class="job-card">
+                    <img src="company-logo.png" alt="Company Logo" class="company-logo">
+                    <div class="job-info">
+                        <h2>Architekt*in</h2>
+                        <p>Herzog & de Meuron</p>
+                        <div class="tags">
+                            <span>80-100%</span>
+                            <span>Wettbewerbe</span>
+                        </div>
+                        <p>Zurich Wiedikon</p>
                     </div>
-                    <p>Zurich Wiedikon</p>
+                    <div class="posting-date">Today</div> <!-- New posting date element -->
                 </div>
-                <div class="posting-date">Today</div> <!-- New posting date element -->
-            </div>
-            <div class="job-card">
-                <img src="company-logo.png" alt="Company Logo" class="company-logo">
-                <div class="job-info">
-                    <h2>Architekt*in</h2>
-                    <p>Herzog & de Meuron</p>
-                    <div class="tags">
-                        <span>80-100%</span>
-                        <span>Wettbewerbe</span>
+            </a>            <a href="#" target="_blank" class="job-card-link">
+                <div class="job-card">
+                    <img src="company-logo.png" alt="Company Logo" class="company-logo">
+                    <div class="job-info">
+                        <h2>Architekt*in</h2>
+                        <p>Herzog & de Meuron</p>
+                        <div class="tags">
+                            <span>80-100%</span>
+                            <span>Wettbewerbe</span>
+                        </div>
+                        <p>Zurich Wiedikon</p>
                     </div>
-                    <p>Zurich Wiedikon</p>
+                    <div class="posting-date">Today</div> <!-- New posting date element -->
                 </div>
-                <div class="posting-date">Today</div> <!-- New posting date element -->
-            </div>
+            </a>
             <!-- Repeat for each job -->
         </section>
     </main>
