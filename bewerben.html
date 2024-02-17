@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Apply for the Architect position with Tadao. Join our team today.">
+    <title>Bewerbung - Tadao Job Board for Architects</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #fff;
+            padding: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .header-content {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+        .logo {
+            height: 50px;
+        }
+        .back-button {
+            background-color: #e0e0e0;
+            color: #333;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+        }
+        .application-form {
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 1200px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .application-form h1, .company-name, .tags, .form-field, .info-text, .submit-btn {
+            margin-bottom: 20px;
+        }
+        .tags span {
+            margin-right: 10px;
+            background-color: #e0e0e0;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .submit-btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+        .upload-btn {
+            background-color: #e0e0e0;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+        }
+        .upload-btn img {
+            height: 20px;
+            margin-right: 10px;
+        }
+        .form-field label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-field input, .form-field textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .form-field textarea {
+            resize: vertical;
+        }
+        .checkbox-field {
+            margin-bottom: 20px;
+        }
+        .checkbox-field input {
+            margin-right: 10px;
+        }
+        .info-text {
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="logo.png" alt="Tadao logo" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Alle Jobs</a></li>
+                    <li><a href="#post-job">Inserat erstellen</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="application-form">
+            <h1>Bewerbung: Architekt*in</h1>
+            <p class="company-name">Herzog & de Meuron</p>
+            <div class="tags">
+                <span>80-100%</span>
+                <span>Wettbewerbe</span>
+                <span>Archicad</span>
+            </div>
+            <form action="submit-application-url" method="post" enctype="multipart/form-data">
+                <div class="form-field">
+                    <label for="full-name">Vollständiger Name</label>
+                    <input type="text" id="full-name" name="full-name" required>
+                </div>
+                <div class="form-field">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-field">
+                    <label class="upload-btn">
+                        <img src="upload-icon.png" alt="Upload">
+                        Lebenslauf hochladen
+                        <input type="file" name="cv" style="display: none;">
+                    </label>
+                </div>
+                <div class="form-field">
+                    <label class="upload-btn">
+                        <img src="upload-icon.png" alt="Upload">
+                        Portfolio hochladen
+                        <input type="file" name="portfolio" style="display: none;">
+                    </label>
+                </div>
+                <div class="form-field">
+                    <label for="message">Nachricht an das Büro</label>
+                    <textarea id="message" name="message" rows="5"></textarea>
+                </div>
+                <div class="checkbox-field">
+                    <input type="checkbox" id="job-alert" name="job-alert">
+                    <label for="job-alert">Ich möchte über ähnliche Stellen informiert werden.</label>
+                </div>
+                <p class="info-text">Mit dem Bewerben akzeptieren Sie die Datenschutzrichtlinien.</p>
+                <button type="submit" class="submit-btn">Bewerben</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
