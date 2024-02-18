@@ -1,0 +1,113 @@
+@media only screen and (min-width: 769px) {
+
+    body {
+        font-family: 'Inter', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+    }
+
+    header {
+        background-color: #fff;
+        padding: 20px 0;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .header-content {
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+    }
+
+    nav ul li {
+        background-color: #0021A7;
+        padding: 10px 20px 10px 20px;
+        margin-left: 20px;
+        border-radius: 20px;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        font-weight: 400;
+        color: #fff;
+    }
+
+    .logo {
+        height: 60px;
+    }
+
+    .back-button {
+        background-color: #e0e0e0;
+        color: #333;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        text-decoration: none; /* Removes underline */
+        font-weight: 500;
+        margin-bottom: 20px; /* Ensure spacing between button and job detail */
+    }
+
+    .job-detail {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px auto;
+        padding: 20px;
+        max-width: 1200px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .job-description {
+        width: 60%;
+    }
+
+    .job-image {
+        width: 40%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .job-image img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px; /* Optional: adds a subtle rounded corner */
+    }
+
+    h1, .company-name, .tags, .job-description-text, .apply-btn {
+        margin-bottom: 20px;
+    }
+
+    .tags span {
+        margin-right: 10px;
+        background-color: #f1f1f1;
+        color: gray;
+        padding: 5px 10px 5px 10px;
+        border-radius: 20px;
+    }
+
+    .apply-btn {
+        background-color: #0021A7;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 20px;
+        text-decoration: none; /* Makes it look like a button */
+    }
+
+    .apply-btn:hover {
+        background-color: #0056b3;
+    }
+
+}
