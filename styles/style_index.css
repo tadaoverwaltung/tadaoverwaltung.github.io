@@ -1,0 +1,137 @@
+@media only screen and (min-width: 769px) {
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+    }
+
+    header {
+        background-color: #fff;
+        padding: 20px 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-content {
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+    }
+
+    nav ul li {
+        margin-left: 20px;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: #333;
+    }
+
+    .logo {
+        height: 50px;
+    }
+
+    .job-listing {
+        background-color: #f0f0f0;
+        margin: 20px auto;
+        padding: 20px;
+        max-width: 1200px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .job-card {
+        display: flex;
+        justify-content: space-between;
+        /* Keep elements spaced out */
+        align-items: flex-start;
+        /* Align items at the start */
+        margin-bottom: 30px;
+        /* Increased margin between cards */
+        padding: 15px;
+        /* Reduced padding inside the card for a smaller size */
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        /* Optional: adds a subtle shadow for depth */
+    }
+
+    .company-logo {
+        height: 100px;
+        margin-right: 20px;
+    }
+
+    .job-info h2,
+    .job-info p {
+        margin: 5px 0;
+    }
+
+    .job-info {
+        flex-grow: 1;
+        /* Allows job info to take up remaining space */
+        margin-right: 20px;
+        /* Ensures spacing between job info and posting date */
+    }
+
+    .tags {
+        display: flex;
+    }
+
+    .tags span {
+        margin-right: 10px;
+        background-color: #e0e0e0;
+        padding: 5px;
+        border-radius: 5px;
+    }
+
+    .apply-btn {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .apply-btn:hover {
+        background-color: #0056b3;
+    }
+
+    .posting-date {
+        font-size: 0.9em;
+        /* Adjust size as needed */
+        color: #666;
+        /* Subtle text color */
+        white-space: nowrap;
+        /* Prevents wrapping */
+        align-self: center;
+        /* Center vertically in the card */
+    }
+
+    .job-card a {
+        text-decoration: none;
+        /* Removes underline from links */
+        color: inherit;
+        /* Inherits text color from parent */
+        display: block;
+        /* Makes the link fill the entire card area */
+    }
+
+    .job-card:hover {
+        background-color: #fafafa;
+        /* Slightly lighter background on hover */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        /* More pronounced shadow for a "lifted" effect */
+        transition: box-shadow 0.3s ease, background-color 0.3s ease;
+        /* Smooth transition for hover effects */
+    }
+
+}
