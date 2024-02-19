@@ -195,7 +195,7 @@
                     });
 
                     console.log("Document written with ID: ", docRef.id);
-                    alert('Application submitted successfully!');
+                    window.location.href = 'success.html';
                 } catch (e) {
                     console.error("Error adding document: ", e);
                     alert('Error submitting application. Please try again.');
