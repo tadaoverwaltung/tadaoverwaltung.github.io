@@ -146,29 +146,33 @@
                 const fullName = form['full-name'].value;
                 const email = form['email'].value;
                 const message = form['message'].value;
+                // Check if the job-alert checkbox is checked and set the value accordingly
+                const jobalert = form['job-alert'].checked ? 'on' : 'off';
+                
                 const cvFile = form['cv'].files[0];
                 const portfolioFile = form['portfolio'].files[0];
-    
+
                 try {
                     // Upload CV
                     const cvRef = ref(storage, `cvs/${cvFile.name}`);
                     const cvSnapshot = await uploadBytes(cvRef, cvFile);
                     const cvUrl = await getDownloadURL(cvSnapshot.ref);
-    
+
                     // Upload Portfolio
                     const portfolioRef = ref(storage, `portfolios/${portfolioFile.name}`);
                     const portfolioSnapshot = await uploadBytes(portfolioRef, portfolioFile);
                     const portfolioUrl = await getDownloadURL(portfolioSnapshot.ref);
-    
+
                     // Add to Firestore
                     const docRef = await addDoc(collection(db, "Applications"), {
                         name: fullName,
                         email: email,
                         message: message,
+                        jobalert: jobalert, // Use the corrected jobalert value
                         cvUrl: cvUrl,
                         portfolioUrl: portfolioUrl
                     });
-    
+
                     console.log("Document written with ID: ", docRef.id);
                     alert('Application submitted successfully!');
                 } catch (e) {
@@ -176,6 +180,7 @@
                     alert('Error submitting application. Please try again.');
                 }
             }
+
         </script>
 </head>
 <body>
