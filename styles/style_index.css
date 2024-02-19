@@ -9,13 +9,13 @@
 
     header {
         background-color: #fff;
-        padding: 20px 0;
+        padding: 15px 0;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     .header-content {
-        max-width: 1200px;
         margin: auto;
+        padding: 0px 50px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -29,12 +29,15 @@
     }
 
     nav ul li {
-        margin-left: 20px;
+        background-color: #0021A7;
+        padding: 10px 20px 10px 20px;
+        border-radius: 20px;
     }
 
     nav ul li a {
         text-decoration: none;
-        color: #333;
+        font-weight: 500;
+        color: #fff;
     }
 
     .logo {
@@ -44,7 +47,7 @@
     .job-listing {
         background-color: #f0f0f0;
         margin: 20px auto;
-        padding: 20px;
+        padding: 0px 20px 20px 20px;
         max-width: 1200px;
     }
 
@@ -54,7 +57,7 @@
         /* Keep elements spaced out */
         align-items: flex-start;
         /* Align items at the start */
-        margin-bottom: 30px;
+        margin-bottom: 10px;
         /* Increased margin between cards */
         padding: 15px;
         /* Reduced padding inside the card for a smaller size */
