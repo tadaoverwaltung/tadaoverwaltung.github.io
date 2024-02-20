@@ -47,7 +47,7 @@
     .job-listing {
         background-color: #f0f0f0;
         margin: 20px auto;
-        padding: 0px 20px 20px 20px;
+        padding: 0px 50px 0px 50px;
         max-width: 1200px;
     }
 
@@ -73,23 +73,35 @@
     .job-info h2,
     .job-info p {
         margin: 5px 0;
+        color: black;
+        text-decoration: none;
+        margin-block: 0px;
     }
 
     .job-info {
         flex-grow: 1;
         /* Allows job info to take up remaining space */
-        margin-right: 20px;
-        /* Ensures spacing between job info and posting date */
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
     }
 
     .tags {
         display: flex;
     }
 
+    .tags p {
+        min-width: 120px;
+        margin-right: 30px;
+    }
+
     .tags span {
         margin-right: 10px;
+        color: #444;
         background-color: #f1f1f1;
+        font-size: small;
         padding: 5px;
+        text-decoration: none;
         border-radius: 20px;
     }
 
@@ -106,15 +118,20 @@
         background-color: #0056b3;
     }
 
+    a {
+        text-decoration: none;
+    }
+
     .posting-date {
-        font-size: 0.9em;
+        font-size: 1em;
         /* Adjust size as needed */
-        color: #666;
+        color: #444;
         /* Subtle text color */
         white-space: nowrap;
         /* Prevents wrapping */
         align-self: center;
         /* Center vertically in the card */
+        text-decoration: none;
     }
 
     .job-card a {
