@@ -1,213 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Apply for the Architect position with Tadao. Join our team today.">
-    <title>Bewerbung - Tadao Job Board for Architects</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-        }
-        header {
-            background-color: #fff;
-            padding: 20px 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .header-content {
-            max-width: 1200px;
-            margin: auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-        }
-        nav ul li {
-            margin-left: 20px;
-        }
-        nav ul li a {
-            text-decoration: none;
-            color: #333;
-        }
-        .logo {
-            height: 50px;
-        }
-        .back-button {
-            background-color: #e0e0e0;
-            color: #333;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-            text-decoration: none;
-            margin-bottom: 20px;
-        }
-        .application-form {
-            margin: 20px auto;
-            padding: 20px;
-            max-width: 1200px;
-            background-color: #fff;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .application-form h1, .company-name, .tags, .form-field, .info-text, .submit-btn {
-            margin-bottom: 20px;
-        }
-        .tags span {
-            margin-right: 10px;
-            background-color: #e0e0e0;
-            padding: 5px;
-            border-radius: 5px;
-        }
-        .submit-btn {
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-            text-decoration: none;
-        }
-        .submit-btn:hover {
-            background-color: #0056b3;
-        }
-        .upload-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #e0e0e0;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-            position: relative;
-            overflow: hidden;
-            width: auto; /* Adjust the width as necessary */
-        }
+    <link rel="stylesheet" href="./styles/style_bewerben.css">
+    <link rel="icon" type="image/png" href="./assets/tadao_logo_favicon.png" />
+    <title>Bewerbung - Tadao - Jobs für Architekten</title>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+        import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-storage.js";
 
-        .upload-btn img {
-            height: 20px;
-            margin-right: 10px;
-        }
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCz-YkCQUXxhtlsCls7LiuwP-YEDGSVU0U",
+            authDomain: "tadao-53b04.firebaseapp.com",
+            projectId: "tadao-53b04",
+            storageBucket: "tadao-53b04.appspot.com",
+            messagingSenderId: "638962767125",
+            appId: "1:638962767125:web:25e0ffb1861d3776f4451c"
+        };
 
-        .upload-btn input[type="file"] {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            opacity: 0;
-            cursor: pointer;
-        }
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const storage = getStorage(app);
 
-        .form-field label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        .form-field input, .form-field textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        .form-field textarea {
-            resize: vertical;
-        }
-        .checkbox-field {
-            margin-bottom: 20px;
-        }
-        .checkbox-field input {
-            margin-right: 10px;
-        }
-        .info-text {
-            font-size: 0.9em;
-        }
-        .file-info {
-            display: inline-block;
-            margin-left: 10px;
-            font-size: 0.9em;
-            vertical-align: middle;
-        }
-    </style>
-        <script type="module">
-            // Import the functions you need from the SDKs you need
-            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-            import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-            import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-storage.js";
-    
-            // Your web app's Firebase configuration
-            const firebaseConfig = {
-                apiKey: "AIzaSyCz-YkCQUXxhtlsCls7LiuwP-YEDGSVU0U",
-                authDomain: "tadao-53b04.firebaseapp.com",
-                projectId: "tadao-53b04",
-                storageBucket: "tadao-53b04.appspot.com",
-                messagingSenderId: "638962767125",
-                appId: "1:638962767125:web:25e0ffb1861d3776f4451c"
-            };
-    
-            // Initialize Firebase
-            const app = initializeApp(firebaseConfig);
-            const db = getFirestore(app);
-            const storage = getStorage(app);
-    
-            window.addEventListener('DOMContentLoaded', () => {
-                document.querySelector('form').addEventListener('submit', handleSubmit);
-            });
-    
-            async function handleSubmit(event) {
-                event.preventDefault();
-                const form = event.target;
-                const fullName = form['full-name'].value;
-                const email = form['email'].value;
-                const message = form['message'].value;
-                // Check if the job-alert checkbox is checked and set the value accordingly
-                const jobalert = form['job-alert'].checked ? 'on' : 'off';
-                
-                const cvFile = form['cv'].files[0];
-                const portfolioFile = form['portfolio'].files[0];
+        window.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('form').addEventListener('submit', handleSubmit);
+        });
 
-                try {
-                    // Upload CV
-                    const cvRef = ref(storage, `cvs/${cvFile.name}`);
-                    const cvSnapshot = await uploadBytes(cvRef, cvFile);
-                    const cvUrl = await getDownloadURL(cvSnapshot.ref);
+        async function handleSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const fullName = form['full-name'].value;
+            const email = form['email'].value;
+            const message = form['message'].value;
+            // Check if the job-alert checkbox is checked and set the value accordingly
+            const jobalert = form['job-alert'].checked ? 'on' : 'off';
 
-                    // Upload Portfolio
-                    const portfolioRef = ref(storage, `portfolios/${portfolioFile.name}`);
-                    const portfolioSnapshot = await uploadBytes(portfolioRef, portfolioFile);
-                    const portfolioUrl = await getDownloadURL(portfolioSnapshot.ref);
+            const cvFile = form['cv'].files[0];
+            const portfolioFile = form['portfolio'].files[0];
 
-                    // Add to Firestore
-                    const docRef = await addDoc(collection(db, "Applications"), {
-                        name: fullName,
-                        email: email,
-                        message: message,
-                        jobalert: jobalert, // Use the corrected jobalert value
-                        cvUrl: cvUrl,
-                        portfolioUrl: portfolioUrl
-                    });
+            try {
+                // Upload CV
+                const cvRef = ref(storage, `cvs/${cvFile.name}`);
+                const cvSnapshot = await uploadBytes(cvRef, cvFile);
+                const cvUrl = await getDownloadURL(cvSnapshot.ref);
 
-                    console.log("Document written with ID: ", docRef.id);
-                    window.location.href = 'success.html';
-                } catch (e) {
-                    console.error("Error adding document: ", e);
-                    alert('Error submitting application. Please try again.');
-                }
+                // Upload Portfolio
+                const portfolioRef = ref(storage, `portfolios/${portfolioFile.name}`);
+                const portfolioSnapshot = await uploadBytes(portfolioRef, portfolioFile);
+                const portfolioUrl = await getDownloadURL(portfolioSnapshot.ref);
+
+                // Add to Firestore
+                const docRef = await addDoc(collection(db, "Applications"), {
+                    name: fullName,
+                    email: email,
+                    message: message,
+                    jobalert: jobalert, // Use the corrected jobalert value
+                    cvUrl: cvUrl,
+                    portfolioUrl: portfolioUrl
+                });
+
+                console.log("Document written with ID: ", docRef.id);
+                window.location.href = 'success.html';
+            } catch (e) {
+                console.error("Error adding document: ", e);
+                alert('Error submitting application. Please try again.');
             }
+        }
 
-            document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('cv').addEventListener('change', function() {
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('cv').addEventListener('change', function () {
                 updateFilenameDisplay('cv', 'cv-filename');
             });
 
-            document.getElementById('portfolio').addEventListener('change', function() {
+            document.getElementById('portfolio').addEventListener('change', function () {
                 updateFilenameDisplay('portfolio', 'portfolio-filename');
             });
 
@@ -222,8 +94,9 @@
                 }
             }
         });
-        </script>
+    </script>
 </head>
+
 <body>
     <header>
         <div class="header-content">
@@ -282,4 +155,5 @@
         </section>
     </main>
 </body>
+
 </html>

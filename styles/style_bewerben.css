@@ -1,0 +1,155 @@
+@media only screen and (min-width: 769px) {
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+    }
+
+    header {
+        background-color: #fff;
+        padding: 20px 0;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .header-content {
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+    }
+    
+    nav ul li {
+        margin-left: 20px;
+    }
+    
+    nav ul li a {
+        text-decoration: none;
+        color: #333;
+    }
+    
+    .logo {
+        height: 50px;
+    }
+    
+    .back-button {
+        background-color: #e0e0e0;
+        color: #333;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        text-decoration: none;
+        margin-bottom: 20px;
+    }
+    
+    .application-form {
+        margin: 20px auto;
+        padding: 20px;
+        max-width: 1200px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .application-form h1, .company-name, .tags, .form-field, .info-text, .submit-btn {
+        margin-bottom: 20px;
+    }
+    
+    .tags span {
+        margin-right: 10px;
+        color: #444;
+        background-color: #f1f1f1;
+        font-size: small;
+        padding: 5px;
+        text-decoration: none;
+        border-radius: 20px;
+    }
+    
+    .submit-btn {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+    
+    .submit-btn:hover {
+        background-color: #0056b3;
+    }
+    
+    .upload-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #e0e0e0;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        position: relative;
+        overflow: hidden;
+        width: auto; /* Adjust the width as necessary */
+    }
+
+    .upload-btn img {
+        height: 20px;
+        margin-right: 10px;
+    }
+
+    .upload-btn input[type="file"] {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    .form-field label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    .form-field input, .form-field textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    
+    .form-field textarea {
+        resize: vertical;
+    }
+    
+    .checkbox-field {
+        margin-bottom: 20px;
+    }
+    
+    .checkbox-field input {
+        margin-right: 10px;
+    }
+    
+    .info-text {
+        font-size: 0.9em;
+    }
+    
+    .file-info {
+        display: inline-block;
+        margin-left: 10px;
+        font-size: 0.9em;
+        vertical-align: middle;
+    }
+
+}
