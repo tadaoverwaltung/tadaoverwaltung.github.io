@@ -79,18 +79,33 @@
             background-color: #0056b3;
         }
         .upload-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             background-color: #e0e0e0;
-            border: none;
             padding: 10px 20px;
             cursor: pointer;
             border-radius: 5px;
-            display: flex;
-            align-items: center;
+            position: relative;
+            overflow: hidden;
+            width: auto; /* Adjust the width as necessary */
         }
+
         .upload-btn img {
             height: 20px;
             margin-right: 10px;
         }
+
+        .upload-btn input[type="file"] {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+
         .form-field label {
             display: block;
             margin-bottom: 5px;
@@ -114,7 +129,100 @@
         .info-text {
             font-size: 0.9em;
         }
+        .file-info {
+            display: inline-block;
+            margin-left: 10px;
+            font-size: 0.9em;
+            vertical-align: middle;
+        }
     </style>
+        <script type="module">
+            // Import the functions you need from the SDKs you need
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+            import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+            import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-storage.js";
+    
+            // Your web app's Firebase configuration
+            const firebaseConfig = {
+                apiKey: "AIzaSyCz-YkCQUXxhtlsCls7LiuwP-YEDGSVU0U",
+                authDomain: "tadao-53b04.firebaseapp.com",
+                projectId: "tadao-53b04",
+                storageBucket: "tadao-53b04.appspot.com",
+                messagingSenderId: "638962767125",
+                appId: "1:638962767125:web:25e0ffb1861d3776f4451c"
+            };
+    
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const db = getFirestore(app);
+            const storage = getStorage(app);
+    
+            window.addEventListener('DOMContentLoaded', () => {
+                document.querySelector('form').addEventListener('submit', handleSubmit);
+            });
+    
+            async function handleSubmit(event) {
+                event.preventDefault();
+                const form = event.target;
+                const fullName = form['full-name'].value;
+                const email = form['email'].value;
+                const message = form['message'].value;
+                // Check if the job-alert checkbox is checked and set the value accordingly
+                const jobalert = form['job-alert'].checked ? 'on' : 'off';
+                
+                const cvFile = form['cv'].files[0];
+                const portfolioFile = form['portfolio'].files[0];
+
+                try {
+                    // Upload CV
+                    const cvRef = ref(storage, `cvs/${cvFile.name}`);
+                    const cvSnapshot = await uploadBytes(cvRef, cvFile);
+                    const cvUrl = await getDownloadURL(cvSnapshot.ref);
+
+                    // Upload Portfolio
+                    const portfolioRef = ref(storage, `portfolios/${portfolioFile.name}`);
+                    const portfolioSnapshot = await uploadBytes(portfolioRef, portfolioFile);
+                    const portfolioUrl = await getDownloadURL(portfolioSnapshot.ref);
+
+                    // Add to Firestore
+                    const docRef = await addDoc(collection(db, "Applications"), {
+                        name: fullName,
+                        email: email,
+                        message: message,
+                        jobalert: jobalert, // Use the corrected jobalert value
+                        cvUrl: cvUrl,
+                        portfolioUrl: portfolioUrl
+                    });
+
+                    console.log("Document written with ID: ", docRef.id);
+                    window.location.href = 'success.html';
+                } catch (e) {
+                    console.error("Error adding document: ", e);
+                    alert('Error submitting application. Please try again.');
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('cv').addEventListener('change', function() {
+                updateFilenameDisplay('cv', 'cv-filename');
+            });
+
+            document.getElementById('portfolio').addEventListener('change', function() {
+                updateFilenameDisplay('portfolio', 'portfolio-filename');
+            });
+
+            function updateFilenameDisplay(inputId, outputId) {
+                var input = document.getElementById(inputId);
+                var output = document.getElementById(outputId);
+                if (input.files.length > 0) {
+                    var filename = input.files[0].name;
+                    output.innerHTML = '✅ ' + filename; // Using an emoji as a checkmark
+                } else {
+                    output.innerHTML = ''; // Clear the filename when no file is selected
+                }
+            }
+        });
+        </script>
 </head>
 <body>
     <header>
@@ -147,18 +255,18 @@
                     <input type="email" id="email" name="email" required>
                 </div>
                 <div class="form-field">
-                    <label class="upload-btn">
-                        <img src="upload-icon.png" alt="Upload">
-                        Lebenslauf hochladen
-                        <input type="file" name="cv" style="display: none;">
+                    <label for="cv" class="upload-btn">
+                        <img src="upload-icon.png" alt="Upload"> Lebenslauf hochladen
+                        <input type="file" id="cv" name="cv" required>
                     </label>
+                    <span id="cv-filename" class="file-info"></span>
                 </div>
                 <div class="form-field">
-                    <label class="upload-btn">
-                        <img src="upload-icon.png" alt="Upload">
-                        Portfolio hochladen
-                        <input type="file" name="portfolio" style="display: none;">
+                    <label for="portfolio" class="upload-btn">
+                        <img src="upload-icon.png" alt="Upload"> Portfolio hochladen
+                        <input type="file" id="portfolio" name="portfolio" required>
                     </label>
+                    <span id="portfolio-filename" class="file-info"></span>
                 </div>
                 <div class="form-field">
                     <label for="message">Nachricht an das Büro</label>
