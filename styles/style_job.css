@@ -4,6 +4,7 @@
         font-family: 'Inter', sans-serif;
         margin: 0;
         padding: 0;
+        background-color: #f0f0f0;
     }
 
     header {
@@ -16,7 +17,6 @@
         margin-block-end: 0px;
         margin-block-start: 0px;
     }
-
 
     .header-content {
         margin: auto;
@@ -52,7 +52,7 @@
     }
 
     .logo {
-        height: 60px;
+        height: 50px;
     }
 
     .button-section {
@@ -71,15 +71,13 @@
         /* Removes underline */
         font-weight: 500;
         font-size: small;
-        margin-bottom: 20px;
-        /* Ensure spacing between button and job detail */
     }
 
     .job-detail {
         display: flex;
         justify-content: space-between;
         margin: 20px auto;
-        padding: 20px 50px 0px 50px;
+        padding: 0px 50px 0px 50px;
         gap: 10px;
     }
 

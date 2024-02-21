@@ -9,13 +9,13 @@
 
     header {
         background-color: #fff;
-        padding: 20px 0;
+        padding: 15px 0;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     .header-content {
-        max-width: 1200px;
         margin: auto;
+        padding: 0px 50px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -29,12 +29,15 @@
     }
 
     nav ul li {
+        background-color: #0021A7;
+        padding: 10px 20px 10px 20px;
         margin-left: 20px;
+        border-radius: 20px;
     }
 
     nav ul li a {
         text-decoration: none;
-        color: #333;
+        color: white;
     }
 
     .logo {
@@ -68,6 +71,7 @@
     .info-text,
     .submit-btn {
         margin-bottom: 20px;
+        margin-block-start: 0px;
     }
 
     .tags span {
@@ -84,6 +88,7 @@
         background-color: #0021a7;
         color: white;
         font-family: 'Inter';
+        font-size: medium;
         border: none;
         padding: 10px 20px;
         cursor: pointer;
@@ -133,6 +138,8 @@
     .form-field textarea {
         display: flex;
         width: -webkit-fill-available;
+        font-family: 'Inter';
+        font-size: medium;
         padding: 10px;
         margin-bottom: 10px;
         border-radius: 20px;
@@ -148,7 +155,16 @@
         font-size: medium;
     }
 
+    .checkbox {
+        height: 20px;
+        width: 20px;
+        border-radius: 20px;
+        accent-color: #0021a7;
+    }
+
     .checkbox-field {
+        display: flex;
+        align-items: center;
         margin-bottom: 20px;
     }
 
@@ -163,6 +179,8 @@
 
     .file-info {
         display: inline-block;
+        font-family: 'Inter';
+        font-size: small;
         margin-left: 10px;
         font-size: 0.9em;
         vertical-align: middle;
