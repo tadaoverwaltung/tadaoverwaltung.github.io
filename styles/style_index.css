@@ -5,6 +5,14 @@
         margin: 0;
         padding: 0;
         background-color: #f0f0f0;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    main {
+        flex: 1;
+        overflow-y: auto;
     }
 
     header {
@@ -126,6 +134,7 @@
     }
 
     a {
+        color: white;
         text-decoration: none;
     }
 
@@ -157,6 +166,65 @@
         /* More pronounced shadow for a "lifted" effect */
         transition: box-shadow 0.3s ease, background-color 0.3s ease;
         /* Smooth transition for hover effects */
+    }
+
+    .footer {
+        padding: 15px 50px;
+        background-color: black;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .form-field input,
+    .form-field textarea {
+        display: flex;
+        font-family: 'Inter';
+        font-size: small;
+        padding: 10px;
+        /*        margin-bottom: 10px; */
+        border-radius: 20px;
+        border: 1px solid #ccc;
+    }
+
+    .form-field {
+        margin-bottom: 0px;
+        margin-block-start: 0px;
+    }
+
+    .email-form {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+    }
+
+    nav ul div {
+        text-decoration: none;
+        font-size: medium;
+        color: #fff;
+        margin-left: 20px;
+    }
+
+    .form-field p {
+        text-decoration: none;
+        font-size: small;
+        color: #fff;
+        width: 80%;
+    }
+
+    .submit-btn {
+        background-color: white;
+        color: black;
+        font-family: 'Inter';
+        font-size: small;
+        font-weight: 500;
+        border: none;
+        padding: 6px 10px;
+        cursor: pointer;
+        border-radius: 20px;
+        text-decoration: none;
     }
 
 }

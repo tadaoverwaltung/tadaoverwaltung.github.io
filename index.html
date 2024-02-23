@@ -19,12 +19,13 @@
             </a>
             <nav>
                 <ul>
-                    <a href="#post-job"><li>Inserat erstellen</li></a>
+                    <a href="ausschreiben.html">
+                        <li>Stelle ausschreiben</li>
+                    </a>
                 </ul>
             </nav>
         </div>
     </header>
-
     <main>
         <section class="job-listing">
             <a href="./job1.html" class="job-card-link">
@@ -131,8 +132,34 @@
             </a>
             <!-- Repeat for each job -->
         </section>
-        
     </main>
+    <footer class="footer">
+        <div class="footer-container">
+            <form class="email-form" action="submit-email-url" method="post" enctype="multipart/form-data">
+                <div class="form-field">
+                    <!-- <label for="full-name">Email-Adresse</label> -->
+                    <input type="text" id="full-name" name="full-name" placeholder="Email-Adresse" required>
+                </div>
+                <div class="form-field">
+                    <button type="submit" class="submit-btn">Abschicken</button>
+                </div>
+                <div class="form-field">
+                    <p>
+                        Hinterlasse uns deine Email-Adresse und erhalte alle 2 Wochen die neuesten Job-Angebote in
+                        Zürich
+                    </p>
+                </div>
+            </form>
+        </div>
+        <div class="footer-container">
+            <nav>
+                <ul>
+                    <div><a href="impressum.html">Impressum</a></div>
+                    <div><a href="datenschutz.html">Datenschutz</a></div>
+                </ul>
+            </nav>
+        </div>
+    </footer>
 </body>
 
 </html>
