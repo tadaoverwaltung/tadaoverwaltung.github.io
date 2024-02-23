@@ -161,4 +161,18 @@
         background-color: #0056b3;
     }
 
+    .success-message {
+        display: flex;
+        justify-content: center;
+        margin: 20px auto;
+        padding: 0px 50px 0px 50px;
+        gap: 10px;
+    }
+
+    .href-text {
+        color: #0021a7;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
 }

@@ -30,7 +30,9 @@
 
     nav ul li {
         background-color: #0021A7;
+        color: white;
         padding: 10px 20px 10px 20px;
+        margin-left: 20px;
         border-radius: 20px;
     }
 
@@ -38,6 +40,11 @@
         text-decoration: none;
         font-size: medium;
         color: #fff;
+    }
+
+    nav ul li:hover {
+        background-color: #0055A6;
+        text-decoration: none;
     }
 
     .logo {
