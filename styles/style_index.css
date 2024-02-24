@@ -191,7 +191,6 @@
         font-family: 'Inter';
         font-size: small;
         padding: 10px;
-        /*        margin-bottom: 10px; */
         border-radius: 20px;
         border: 1px solid #ccc;
     }
@@ -429,10 +428,10 @@
     .form-field input,
     .form-field textarea {
         display: flex;
+        min-width: 150px;
         font-family: 'Inter';
         font-size: small;
         padding: 10px;
-        /*        margin-bottom: 10px; */
         border-radius: 20px;
         border: 1px solid #ccc;
     }
