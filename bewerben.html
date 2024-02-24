@@ -38,8 +38,7 @@
             const form = event.target;
             const fullName = form['full-name'].value;
             const email = form['email'].value;
-            const message = form['message'].value;
-            // Check if the job-alert checkbox is checked and set the value accordingly
+            const userMessage = form['message'].value;
             const jobalert = form['job-alert'].checked ? 'on' : 'off';
 
             const cvFile = form['cv'].files[0];
@@ -56,14 +55,26 @@
                 const portfolioSnapshot = await uploadBytes(portfolioRef, portfolioFile);
                 const portfolioUrl = await getDownloadURL(portfolioSnapshot.ref);
 
-                // Add to Firestore
+                // Construct the HTML message
+                const htmlMessage = `
+                    <p>Hello,</p>
+                    <p>You have a new application from ${fullName}. Here are the details:</p>
+                    <p><strong>Email:</strong> ${email}</p>
+                    <p><strong>Message:</strong> ${userMessage}</p>
+                    <p><strong>CV:</strong> <a href="${cvUrl}">Download CV</a></p>
+                    <p><strong>Portfolio:</strong> <a href="${portfolioUrl}">Download Portfolio</a></p>
+                    <p><strong>Job Alert Subscription:</strong> ${jobalert}</p>
+                    <p>Best,</p>
+                    <p>Tadao Team</p>
+                `;
+
+                // Add to Firestore with email fields
                 const docRef = await addDoc(collection(db, "Applications"), {
-                    name: fullName,
-                    email: email,
-                    message: message,
-                    jobalert: jobalert, // Use the corrected jobalert value
-                    cvUrl: cvUrl,
-                    portfolioUrl: portfolioUrl
+                    to: ["kaialbrechtschmid@gmail.com", "ks@tadao.com", "karolwojtas7@gmail.com", "kw@tadao.ch"],
+                    message: {
+                        subject: "Neue Bewerbung Erhalten",
+                        html: htmlMessage
+                    }
                 });
 
                 console.log("Document written with ID: ", docRef.id);
@@ -73,6 +84,7 @@
                 alert('Error submitting application. Please try again.');
             }
         }
+
 
         document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('cv').addEventListener('change', function () {
