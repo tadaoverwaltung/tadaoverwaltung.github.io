@@ -20,7 +20,7 @@
 
     .header-content {
         margin: auto;
-        padding: 0px 50px;
+        padding: 0px 20px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -34,6 +34,7 @@
 
     nav ul {
         list-style: none;
+        gap: 15px;
         padding: 0;
         margin: 0;
         display: flex;
@@ -41,7 +42,7 @@
 
     nav ul li {
         background-color: #0021A7;
-        padding: 10px 20px 10px 20px;
+        padding: 10px;
         margin-left: 20px;
         border-radius: 20px;
         color: white;
@@ -195,6 +196,8 @@
         margin: 0;
         padding: 0;
         background-color: #f0f0f0;
+        display: flex;
+        flex-direction: column;
     }
 
     header {
@@ -210,7 +213,7 @@
 
     .header-content {
         margin: auto;
-        padding: 0px 50px;
+        padding: 0px 20px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -227,18 +230,22 @@
         padding: 0;
         margin: 0;
         display: flex;
+        flex-direction: row;
+        gap: 5px;
     }
 
     nav ul li {
         background-color: #0021A7;
-        padding: 10px 20px 10px 20px;
-        margin-left: 20px;
+        font-size: small;
+        padding: 10px;
         border-radius: 20px;
         color: white;
+        width: max-content;
     }
 
     nav ul li a {
         text-decoration: none;
+        font-size: small;
         color: #fff;
     }
 
@@ -248,7 +255,7 @@
     }
 
     .logo {
-        height: 50px;
+        height: 40px;
     }
 
     .button-section {
@@ -276,6 +283,7 @@
 
     .job-detail {
         display: flex;
+        flex-direction: column;
         justify-content: space-between;
         margin: 20px auto;
         padding: 0px 50px 0px 50px;
@@ -286,14 +294,12 @@
         display: flex;
         flex-direction: column;
         padding: 20px;
-        width: 60%;
         gap: 15px;
         background-color: white;
         border-radius: 20px;
     }
 
     .job-image {
-        width: 40%;
         display: flex;
         justify-content: center;
         align-items: baseline;
