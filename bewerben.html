@@ -35,6 +35,13 @@
 
         async function handleSubmit(event) {
             event.preventDefault();
+            const submitButton = document.getElementById('submit-btn');
+            const originalButtonHTML = submitButton.innerHTML; // Store original button content
+
+            // Show loading animation on button
+            submitButton.innerHTML = 'Loading... <div class="loading-spinner" style="display: inline-block; border: 4px solid #f3f3f3; border-top: 4px solid #3498db; border-radius: 50%; width: 20px; height: 20px; animation: spin 2s linear infinite;"></div>';
+            submitButton.disabled = true;
+
             const form = event.target;
             const fullName = form['full-name'].value;
             const email = form['email'].value;
@@ -110,6 +117,24 @@
             }
         });
     </script>
+
+<style>
+
+    .loading-spinner {
+        border: 4px solid #f3f3f3; /* Light grey */
+        border-top: 4px solid #3498db; /* Blue */
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+</style>
+
 </head>
 
 <body>
@@ -170,7 +195,7 @@
                     <label for="job-alert">Ich möchte über ähnliche Stellen informiert werden.</label>
                 </div>
                 <p class="info-text">Mit dem Abschicken der Bewerbung akzeptieren Sie die Datenschutzrichtlinien.</p>
-                <button type="submit" class="submit-btn">Bewerben</button>
+                <button type="submit" class="submit-btn" id="submit-btn">Bewerben</button>
             </form>
         </section>
     </main>
