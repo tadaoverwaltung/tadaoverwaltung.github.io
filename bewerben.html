@@ -57,13 +57,10 @@
 
                 // Construct the HTML message
                 const htmlMessage = `
-                    <p>Hello,</p>
-                    <p>You have a new application from ${fullName}. Here are the details:</p>
+                    <p>Guten Tag,</p>
+                    <p>Sie haben eine neue Bewerbung von ${fullName} erhalten mit folgenden Details:</p>
                     <p><strong>Email:</strong> ${email}</p>
-                    <p><strong>Message:</strong> ${userMessage}</p>
-                    <p><strong>CV:</strong> <a href="${cvUrl}">Download CV</a></p>
-                    <p><strong>Portfolio:</strong> <a href="${portfolioUrl}">Download Portfolio</a></p>
-                    <p><strong>Job Alert Subscription:</strong> ${jobalert}</p>
+                    <p><strong>Nachricht vom Bewerber:</strong> ${userMessage}</p>
                     <p>Best,</p>
                     <p>Tadao Team</p>
                 `;
@@ -73,7 +70,13 @@
                     to: ["kaialbrechtschmid@gmail.com", "ks@tadao.com", "karolwojtas7@gmail.com", "kw@tadao.ch"],
                     message: {
                         subject: "Neue Bewerbung Erhalten",
-                        html: htmlMessage
+                        html: htmlMessage,
+                        attachments: [
+                            {filename: "cv.pdf",
+                            path: cvUrl},
+                            {filename: "portfolio.pdf",
+                            path: portfolioUrl}
+                        ]
                     }
                 });
 
