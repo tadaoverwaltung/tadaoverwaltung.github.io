@@ -447,6 +447,7 @@
         justify-content: center;
         align-items: center;
         gap: 15px;
+        font-family: 'Inter';
     }
 
     nav ul div {
