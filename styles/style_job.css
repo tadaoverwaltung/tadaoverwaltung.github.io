@@ -97,7 +97,7 @@
     .job-description {
         display: flex;
         flex-direction: column;
-        padding: 20px;
+        padding: 35px;
         width: 60%;
         gap: 15px;
         background-color: white;
