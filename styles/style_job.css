@@ -7,20 +7,20 @@
         background-color: #f0f0f0;
     }
 
+    p {
+        margin-block-end: 0px;
+        margin-block-start: 0px;
+    }
+
     header {
         background-color: #fff;
         padding: 15px 0;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
-    p {
-        margin-block-end: 0px;
-        margin-block-start: 0px;
-    }
-
     .header-content {
         margin: auto;
-        padding: 0px 20px;
+        padding: 0px 50px;
         display: flex;
         justify-content: space-between;
         align-items: center;
