@@ -74,7 +74,7 @@
 
                 // Add to Firestore with email fields
                 const docRef = await addDoc(collection(db, "Applications"), {
-                    to: ["kaialbrechtschmid@gmail.com", "ks@tadao.com", "karolwojtas7@gmail.com", "kw@tadao.ch"],
+                    to: ["ks@tadao.com", "kw@tadao.ch"],
                     message: {
                         subject: "Neue Bewerbung Erhalten",
                         html: htmlMessage,
