@@ -12,6 +12,10 @@
         margin-block-start: 0px;
     }
 
+    a {
+        text-decoration: none;
+    }
+
     header {
         background-color: #fff;
         padding: 15px 0;
@@ -188,6 +192,65 @@
         gap: 15px;
         background-color: white;
         border-radius: 20px;
+    }
+
+    .preview {
+        display: flex;
+        justify-content: center;
+        flex-shrink: 0;
+        position: relative;
+        width: 40%;
+        height: fit-content;
+    }
+
+    .newsletter-container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .newsletter-text {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .form-field input,
+    .form-field textarea {
+        display: flex;
+        font-family: 'Inter';
+        font-size: small;
+        min-width: 200px;
+        padding: 10px;
+        border-radius: 20px;
+        border: 1px solid #ccc;
+    }
+
+    .form-field {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 0px;
+        margin-block-start: 0px;
+    }
+
+    .form-field p {
+        text-decoration: none;
+        font-size: small;
+        color: #fff;
+    }
+
+    .submit-btn {
+        background-color: #0021A7;
+        color: white;
+        font-family: 'Inter';
+        font-size: small;
+        font-weight: 500;
+        border: none;
+        padding: 6px 10px;
+        cursor: pointer;
+        border-radius: 20px;
+        text-decoration: none;
     }
 
 }
@@ -383,9 +446,82 @@
         flex-direction: column;
         align-items: center;
         padding: 20px;
-        gap: 15px;
+        /* gap: 10px; */
         background-color: white;
         border-radius: 20px;
+    }
+
+    .preview {
+        display: flex;
+        justify-content: center;
+        flex-shrink: 0;
+        position: relative;
+        width: 60%;
+        height: fit-content;
+    }
+
+    .newsletter-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .newsletter-text {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .form-field input,
+    .form-field textarea {
+        display: flex;
+        min-width: 200px;
+        font-family: 'Inter';
+        font-size: small;
+        padding: 10px;
+        border-radius: 20px;
+        border: 1px solid #ccc;
+    }
+
+    .form-field {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+        min-width: 200px;
+        margin-bottom: 0px;
+        margin-block-start: 0px;
+    }
+
+    .email-form {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        font-family: 'Inter';
+    }
+
+    .form-field p {
+        text-decoration: none;
+        text-align: center;
+        font-style: italic;
+        font-size: small;
+        color: #0021A7;
+    }
+
+    .submit-btn {
+        background-color: #0021A7;
+        color: white;
+        font-family: 'Inter';
+        font-size: small;
+        font-weight: 500;
+        border: none;
+        padding: 6px 10px;
+        cursor: pointer;
+        border-radius: 20px;
+        text-decoration: none;
     }
 
 }
