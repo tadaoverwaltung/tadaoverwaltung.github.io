@@ -140,6 +140,12 @@
         flex-direction: row;
     }
 
+    .position-date {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
     .company-name span {
         margin-right: 20px;
     }

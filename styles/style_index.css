@@ -66,6 +66,15 @@
         max-width: 1200px;
     }
 
+    .job-listing h1{
+        color: #0021A7;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        font-size: xx-large;
+        text-align: center;
+    }
+
     .job-card {
         display: flex;
         justify-content: space-between;
@@ -302,6 +311,15 @@
         margin: 20px auto;
         padding: 0px 20px;
         max-width: 1200px;
+    }
+
+    .job-listing h1{
+        color: #0021A7;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        font-size: larger;
+        text-align: center;
     }
 
     .job-card {
