@@ -9,6 +9,41 @@
     <link rel="stylesheet" href="./styles/style_job.css">
     <link rel="icon" type="image/png" href="./assets/tadao_logo_favicon.png" />
     <title>Neue Stelle ausschreiben - Tadao Jobs</title>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+        
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCz-YkCQUXxhtlsCls7LiuwP-YEDGSVU0U",
+            authDomain: "tadao-53b04.firebaseapp.com",
+            projectId: "tadao-53b04",
+            storageBucket: "tadao-53b04.appspot.com",
+            messagingSenderId: "638962767125",
+            appId: "1:638962767125:web:25e0ffb1861d3776f4451c"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        window.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('.email-form').addEventListener('submit', async (event) => {
+                event.preventDefault();
+                const email = event.target['email'].value;
+                const successMessage = document.getElementById('success-message');
+                try {
+                    await addDoc(collection(db, "newsletter"), { email: email });
+                    console.log("Email added to newsletter collection");
+                    successMessage.textContent = '✅ Deine E-Mail wurde erfolgreich hinzugefügt!';
+                    successMessage.style.display = 'block'; // Show the message
+                } catch (error) {
+                    console.error("Error adding email to newsletter: ", error);
+                }
+            });
+        });
+
+    </script>
 </head>
 
 <body>
@@ -46,10 +81,11 @@
                 <div>
                     <form class="email-form" action="submit-email-url" method="post" enctype="multipart/form-data">
                         <div class="form-field">
-                            <input type="text" id="full-name" name="full-name" placeholder="Email-Adresse" required>
+                            <input type="email" id="email" name="email" placeholder="Email-Adresse" required>
                             <button type="submit" class="submit-btn">Abschicken</button>
                         </div>
                     </form>
+                    <div id="success-message" style="display:none; margin-top: 20px;"></div>
                 </div>
             </div>
         </section>
