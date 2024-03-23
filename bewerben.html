@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Apply for the Architect position with Tadao. Join our team today.">
+    <meta name="description" 
+    content="Tadao - die neuesten Jobs in der Architektur: von Einstiegspositionen bis hin zur Projektleitung. Bewirb dich noch heute.">
     <link rel="stylesheet" href="./styles/style_bewerben.css">
     <link rel="icon" type="image/png" href="./assets/tadao_logo_favicon.png" />
     <title>Bewerbung - Tadao - Jobs für Architekten</title>
@@ -79,10 +80,14 @@
                         subject: "Neue Bewerbung Erhalten",
                         html: htmlMessage,
                         attachments: [
-                            {filename: "cv.pdf",
-                            path: cvUrl},
-                            {filename: "portfolio.pdf",
-                            path: portfolioUrl}
+                            {
+                                filename: "cv.pdf",
+                                path: cvUrl
+                            },
+                            {
+                                filename: "portfolio.pdf",
+                                path: portfolioUrl
+                            }
                         ]
                     }
                 });
@@ -118,22 +123,28 @@
         });
     </script>
 
-<style>
+    <style>
+        .loading-spinner {
+            border: 4px solid #f3f3f3;
+            /* Light grey */
+            border-top: 4px solid #3498db;
+            /* Blue */
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 2s linear infinite;
+        }
 
-    .loading-spinner {
-        border: 4px solid #f3f3f3; /* Light grey */
-        border-top: 4px solid #3498db; /* Blue */
-        border-radius: 50%;
-        width: 20px;
-        height: 20px;
-        animation: spin 2s linear infinite;
-    }
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
 
-    @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-    }
-</style>
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 
 </head>
 
@@ -145,8 +156,12 @@
             </a>
             <nav>
                 <ul>
-                    <a href="index.html"><li>Alle Jobs</li></a>
-                    <a href="ausschreiben.html"><li>Stelle ausschreiben</li></a>
+                    <a href="index.html">
+                        <li>Alle Jobs</li>
+                    </a>
+                    <a href="ausschreiben.html">
+                        <li>Stelle ausschreiben</li>
+                    </a>
                 </ul>
             </nav>
         </div>
