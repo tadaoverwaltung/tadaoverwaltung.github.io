@@ -55,12 +55,20 @@
                 // Upload CV
                 const cvRef = ref(storage, `cvs/${cvFile.name}`);
                 const cvSnapshot = await uploadBytes(cvRef, cvFile);
-                const cvUrl = await getDownloadURL(cvSnapshot.ref);
+
+                // This works without the getDownloadURL function but the email extension will need access to to the storage as well!
+                // This might break?
+                const cvUrl = `https://firebasestorage.googleapis.com/v0/b/${firebaseConfig.storageBucket}/o/${encodeURIComponent(cvSnapshot.metadata.fullPath)}`;
+                console.log(cvUrl)
+                // const cvUrl = await getDownloadURL(cvSnapshot.ref);
 
                 // Upload Portfolio
                 const portfolioRef = ref(storage, `portfolios/${portfolioFile.name}`);
                 const portfolioSnapshot = await uploadBytes(portfolioRef, portfolioFile);
-                const portfolioUrl = await getDownloadURL(portfolioSnapshot.ref);
+
+                const portfolioUrl = `https://firebasestorage.googleapis.com/v0/b/${firebaseConfig.storageBucket}/o/${encodeURIComponent(portfolioSnapshot.metadata.fullPath)}`;
+
+                // const portfolioUrl = await getDownloadURL(portfolioSnapshot.ref);
 
                 // Construct the HTML message
                 const htmlMessage = `
@@ -88,7 +96,7 @@
                 });
 
                 console.log("Document written with ID: ", docRef.id);
-                window.location.href = 'success.html';
+                // window.location.href = 'success.html';
             } catch (e) {
                 console.error("Error adding document: ", e);
                 alert('Error submitting application. Please try again.');
