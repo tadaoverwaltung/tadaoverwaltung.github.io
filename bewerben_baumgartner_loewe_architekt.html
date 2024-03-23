@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Bewerben mit Tadao - die Jobseite für Architekten">
+    <meta name="description" content="Apply for the Architect position with Tadao. Join our team today.">
     <link rel="stylesheet" href="./styles/style_bewerben.css">
     <link rel="icon" type="image/png" href="./assets/tadao_logo_favicon.png" />
     <title>Bewerbung - Tadao - Jobs für Architekten</title>
@@ -55,20 +55,12 @@
                 // Upload CV
                 const cvRef = ref(storage, `cvs/${cvFile.name}`);
                 const cvSnapshot = await uploadBytes(cvRef, cvFile);
-
-                // This works without the getDownloadURL function but the email extension will need access to to the storage as well!
-                // This might break?
-                const cvUrl = `https://firebasestorage.googleapis.com/v0/b/${firebaseConfig.storageBucket}/o/${encodeURIComponent(cvSnapshot.metadata.fullPath)}`;
-                console.log(cvUrl)
-                // const cvUrl = await getDownloadURL(cvSnapshot.ref);
+                const cvUrl = await getDownloadURL(cvSnapshot.ref);
 
                 // Upload Portfolio
                 const portfolioRef = ref(storage, `portfolios/${portfolioFile.name}`);
                 const portfolioSnapshot = await uploadBytes(portfolioRef, portfolioFile);
-
-                const portfolioUrl = `https://firebasestorage.googleapis.com/v0/b/${firebaseConfig.storageBucket}/o/${encodeURIComponent(portfolioSnapshot.metadata.fullPath)}`;
-
-                // const portfolioUrl = await getDownloadURL(portfolioSnapshot.ref);
+                const portfolioUrl = await getDownloadURL(portfolioSnapshot.ref);
 
                 // Construct the HTML message
                 const htmlMessage = `
@@ -96,7 +88,7 @@
                 });
 
                 console.log("Document written with ID: ", docRef.id);
-                // window.location.href = 'success.html';
+                window.location.href = 'success.html';
             } catch (e) {
                 console.error("Error adding document: ", e);
                 alert('Error submitting application. Please try again.');
