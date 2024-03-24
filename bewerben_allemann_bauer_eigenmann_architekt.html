@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Apply for the Architect position with Tadao. Join our team today.">
+    <link rel="stylesheet" href="./styles/style_bewerben.css">
+    <link rel="icon" type="image/png" href="./assets/tadao_logo_favicon.png" />
+    <title>Bewerbung - Tadao - Jobs für Architekten</title>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+        import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-storage.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCz-YkCQUXxhtlsCls7LiuwP-YEDGSVU0U",
+            authDomain: "tadao-53b04.firebaseapp.com",
+            projectId: "tadao-53b04",
+            storageBucket: "tadao-53b04.appspot.com",
+            messagingSenderId: "638962767125",
+            appId: "1:638962767125:web:25e0ffb1861d3776f4451c"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const storage = getStorage(app);
+
+        window.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('form').addEventListener('submit', handleSubmit);
+        });
+
+        async function handleSubmit(event) {
+            event.preventDefault();
+            const submitButton = document.getElementById('submit-btn');
+            const originalButtonHTML = submitButton.innerHTML; // Store original button content
+
+            // Show loading animation on button
+            submitButton.innerHTML = 'Loading... <div class="loading-spinner" style="display: inline-block; border: 4px solid #f3f3f3; border-top: 4px solid #3498db; border-radius: 50%; width: 20px; height: 20px; animation: spin 2s linear infinite;"></div>';
+            submitButton.disabled = true;
+
+            const form = event.target;
+            const fullName = form['full-name'].value;
+            const email = form['email'].value;
+            const userMessage = form['message'].value;
+            const jobalert = form['job-alert'].checked ? 'on' : 'off';
+
+            const cvFile = form['cv'].files[0];
+            const portfolioFile = form['portfolio'].files[0];
+
+            try {
+                // Upload CV
+                const cvRef = ref(storage, `cvs/${cvFile.name}`);
+                const cvSnapshot = await uploadBytes(cvRef, cvFile);
+                const cvUrl = await getDownloadURL(cvSnapshot.ref);
+
+                // Upload Portfolio
+                const portfolioRef = ref(storage, `portfolios/${portfolioFile.name}`);
+                const portfolioSnapshot = await uploadBytes(portfolioRef, portfolioFile);
+                const portfolioUrl = await getDownloadURL(portfolioSnapshot.ref);
+
+                // Construct the HTML message
+                const htmlMessage = `
+                    <p>Guten Tag,</p>
+                    <p>Sie haben eine neue Bewerbung von ${fullName} fuer Allemann Bauer Eigenmann erhalten mit folgenden Details:</p>
+                    <p><strong>Email:</strong> ${email}</p>
+                    <p><strong>Nachricht vom Bewerber:</strong> ${userMessage}</p>
+                    <p>Best,</p>
+                    <p>Tadao Team</p>
+                `;
+
+                // Add to Firestore with email fields
+                const docRef = await addDoc(collection(db, "Applications"), {
+                    to: ["ks@tadao.ch", "kw@tadao.ch"],
+                    message: {
+                        subject: "Neue Bewerbung Erhalten",
+                        html: htmlMessage,
+                        attachments: [
+                            {filename: "cv.pdf",
+                            path: cvUrl},
+                            {filename: "portfolio.pdf",
+                            path: portfolioUrl}
+                        ]
+                    }
+                });
+
+                console.log("Document written with ID: ", docRef.id);
+                window.location.href = 'success.html';
+            } catch (e) {
+                console.error("Error adding document: ", e);
+                alert('Error submitting application. Please try again.');
+            }
+        }
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('cv').addEventListener('change', function () {
+                updateFilenameDisplay('cv', 'cv-filename');
+            });
+
+            document.getElementById('portfolio').addEventListener('change', function () {
+                updateFilenameDisplay('portfolio', 'portfolio-filename');
+            });
+
+            function updateFilenameDisplay(inputId, outputId) {
+                var input = document.getElementById(inputId);
+                var output = document.getElementById(outputId);
+                if (input.files.length > 0) {
+                    var filename = input.files[0].name;
+                    output.innerHTML = '✅ ' + filename; // Using an emoji as a checkmark
+                } else {
+                    output.innerHTML = ''; // Clear the filename when no file is selected
+                }
+            }
+        });
+    </script>
+
+<style>
+
+    .loading-spinner {
+        border: 4px solid #f3f3f3; /* Light grey */
+        border-top: 4px solid #3498db; /* Blue */
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+</style>
+
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html">
+                <img src="logo.png" alt="Tadao logo" class="logo">
+            </a>
+            <nav>
+                <ul>
+                    <a href="index.html"><li>Alle Jobs</li></a>
+                    <a href="ausschreiben.html"><li>Stelle ausschreiben</li></a>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="button-section">
+            <a href="job_allemann_bauer_eigenmann_architekt.html" class="back-button">←zurück</a>
+        </div>
+        <section class="application-form">
+            <h1>Architekt:in Wettbewerbe</h1>
+            <p class="company-name">Allemann Bauer Eigenmann</p>
+            <div class="tags">
+                <span>Wettbewerbe</span>
+                <span>Vectorworks</span>
+                <span>100%</span>
+            </div>
+            <form action="submit-application-url" method="post" enctype="multipart/form-data">
+                <div class="form-field">
+                    <label for="full-name">Vollständiger Name</label>
+                    <input type="text" id="full-name" name="full-name" required>
+                </div>
+                <div class="form-field">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-field">
+                    <label for="cv" class="upload-btn">
+                        <img src="./assets/upload-icon-white.png" alt="Upload"> Lebenslauf hochladen
+                        <input type="file" id="cv" name="cv" required>
+                    </label>
+                    <span id="cv-filename" class="file-info"></span>
+                </div>
+                <div class="form-field">
+                    <label for="portfolio" class="upload-btn">
+                        <img src="./assets/upload-icon-white.png" alt="Upload"> Portfolio hochladen
+                        <input type="file" id="portfolio" name="portfolio" required>
+                    </label>
+                    <span id="portfolio-filename" class="file-info"></span>
+                </div>
+                <div class="form-field">
+                    <label for="message">Deine Nachricht an das Büro</label>
+                    <textarea id="message" name="message" rows="8"></textarea>
+                </div>
+                <div class="checkbox-field">
+                    <input type="checkbox" id="job-alert" name="job-alert" class="checkbox">
+                    <label for="job-alert">Ich möchte über ähnliche Stellen informiert werden.</label>
+                </div>
+                <p class="info-text">Mit dem Abschicken der Bewerbung akzeptieren Sie die Datenschutzrichtlinien.</p>
+                <button type="submit" class="submit-btn" id="submit-btn">Bewerben</button>
+            </form>
+        </section>
+    </main>
+</body>
+
+</html>
